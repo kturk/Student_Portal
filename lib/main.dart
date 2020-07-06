@@ -1,3 +1,4 @@
+import 'package:Flutter_demo/screens/addStudent.dart';
 import 'package:flutter/material.dart';
 import 'models/student.dart';
 
@@ -76,7 +77,7 @@ class _ExamState extends State<Exam> {
             onTap: () {
               setState(() {
                 selectedStudent = students[index];
-                print(selectedStudent.getStudentFullName());
+                //print(selectedStudent.getStudentFullName());
               });
             },
           );
@@ -98,7 +99,9 @@ class _ExamState extends State<Exam> {
             Text("Add"),
           ],
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddStudent()));
+        },
       ),
     );
   }
