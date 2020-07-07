@@ -1,4 +1,5 @@
 import 'package:Flutter_demo/screens/addStudent.dart';
+import 'package:Flutter_demo/screens/updateStudent.dart';
 import 'package:flutter/material.dart';
 import 'models/student.dart';
 
@@ -122,7 +123,13 @@ class _ExamState extends State<Exam> {
             Text("Modify"),
           ],
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => UpdateStudent(selectedStudent)))
+              .then((value) {
+            setState(() {});
+          });
+        },
       ),
     );
   }
