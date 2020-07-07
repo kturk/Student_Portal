@@ -12,12 +12,9 @@ class Exam extends StatefulWidget {
 
   static List<Student> buildStudentList() {
     List<Student> students = [];
-    students.add(Student("Kemal", "Turk", 18,
-        "https://image.shutterstock.com/z/stock-photo-confident-handsome-student-holding-books-and-smiling-at-camera-library-bookshelves-on-background-366568778.jpg"));
-    students.add(Student("Can", "Yavuzkurt", 78,
-        "https://image.shutterstock.com/z/stock-photo-confident-handsome-student-holding-books-and-smiling-at-camera-library-bookshelves-on-background-366568778.jpg"));
-    students.add(Student("Caner", "Tanguler", 55.5,
-        "https://image.shutterstock.com/z/stock-photo-confident-handsome-student-holding-books-and-smiling-at-camera-library-bookshelves-on-background-366568778.jpg"));
+    students.add(Student("Kemal", "Turk", 18));
+    students.add(Student("Can", "Yavuzkurt", 78));
+    students.add(Student("Caner", "Tanguler", 55.5));
 
     return students;
   }
@@ -68,7 +65,7 @@ class _ExamState extends State<Exam> {
               backgroundImage: NetworkImage(students[index].photoLink),
             ),
             title: Text(students[index].getStudentFullName()),
-            subtitle: Text("Grade of your exam: " +
+            subtitle: Text("Grade of exam: " +
                 students[index].grade.toString() +
                 " [" +
                 students[index].getStatus +
@@ -100,7 +97,11 @@ class _ExamState extends State<Exam> {
           ],
         ),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AddStudent()));
+          Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AddStudent(students)))
+              .then((value) {
+            setState(() {});
+          });
         },
       ),
     );
