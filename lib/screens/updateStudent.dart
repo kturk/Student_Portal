@@ -27,7 +27,7 @@ class _UpdateStudentState extends State<UpdateStudent> with StudentValidationMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add New Student"),
+        title: Text("Update Student Info"),
       ),
       body: Container(
         margin: EdgeInsets.all(20.0),
